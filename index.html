@@ -15,11 +15,20 @@
 				<h1>Progressive Web App Demo</h1>
 			</div>
 		</div>
-		<div class="row cols-sm-12">
-			<div id="result">
+		<div class="row">
+			<div class="col-sm-12">
+				<label for="search_field">Input a number between 1 and 500 (inclusive):</label>
+				<input type="number" id="search_field" min="1" max="500" value="1"/>
+			</div>
+			<div class="col-sm-12">
+				<button class="primary" onclick="getNewRequest(document.getElementById('search_field').value)">Request data</button>
+				<button class="secondary" onclick="clearResults()">Clear results</button>
+			</div>
+			<div id="result" class="col-sm-12">
 			</div>
 		</div>
 	</div>
+
 	<script src="js/app.js" async></script>
 </body>
 

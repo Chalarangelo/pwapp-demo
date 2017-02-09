@@ -3,7 +3,7 @@ var requestResult = '';
 (function() {
 	ajaxGetRequest('https://jsonplaceholder.typicode.com/comments/1', true, function(result) {
 		requestResult = JSON.parse(result);
-		document.getElementById('result').innerHTML = '<h2>'+requestResult['name']+'</h2><p>'+requestResult['body']+'</p>';
+		document.getElementById('result').innerHTML += '<h2>'+requestResult['id']+'. '+requestResult['name']+'</h2><p>'+requestResult['body']+'</p><br/>';
 	});
 
 	if ('serviceWorker' in navigator) {
@@ -28,4 +28,15 @@ function ajaxGetRequest(url, async, callback) {
 		callback('GET request from '+url+' returned an error.');
 	};
 	request.send();
+}
+
+function getNewRequest(requestId){
+	ajaxGetRequest('https://jsonplaceholder.typicode.com/comments/'+requestId, true, function(result) {
+		requestResult = JSON.parse(result);
+		document.getElementById('result').innerHTML += '<h2>'+requestResult['id']+'. '+requestResult['name']+'</h2><p>'+requestResult['body']+'</p><br/>';
+	});
+}
+
+function clearResults(){
+	document.getElementById('result').innerHTML='';
 }
