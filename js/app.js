@@ -1,13 +1,20 @@
 var requestResult = '';
-document.addEventListener('DOMContentLoaded', function() {
-	ajaxGetRequest('https://jsonplaceholder.typicode.com/posts/1', true, function(result) {
+
+(function() {
+	ajaxGetRequest('https://jsonplaceholder.typicode.com/comments/1', true, function(result) {
 		requestResult = JSON.parse(result);
-		document.getElementById('result').innerHTML = '<h2>'+requestResult['title']+'</h2><p>'+requestResult['body']+'</p>';
+		document.getElementById('result').innerHTML = '<h2>'+requestResult['name']+'</h2><p>'+requestResult['body']+'</p>';
 	});
-});
+
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker
+			.register('./service-worker.js')
+			.then(function() { console.log('Registered service worker!'); });
+	}
+})();
+
 function ajaxGetRequest(url, async, callback) {
 	var request = new XMLHttpRequest();
-	//var response = '';
 	request.open('GET', url, async);
 	request.onload = function() {
 		if (this.status >= 200 && this.status < 400) {
