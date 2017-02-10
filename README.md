@@ -70,13 +70,13 @@ Then, we deal with the various events. `install` comes first and it's the event 
 
 ```
 self.addEventListener('install', function(e) {
-	console.log('[demoPWA - ServiceWorker] Install event fired.');
 	e.waitUntil(
 		caches.open(cacheName).then(function(cache) {
 			console.log('[demoPWA - ServiceWorker] Caching app shell...');
 			return cache.addAll(filesToCache);
 		})
 	);
+	console.log('[demoPWA - ServiceWorker] Install event fired.');
 });
 ```
 
@@ -84,7 +84,6 @@ Now, for the `activate` event, we want to deal with updating the cache, as neces
 
 ```
 self.addEventListener('activate', function(e) {
-	console.log('[demoPWA - ServiceWorker] Activate event fired.');
 	e.waitUntil(
 		caches.keys().then(function(keyList) {
 			return Promise.all(keyList.map(function(key) {
@@ -95,6 +94,7 @@ self.addEventListener('activate', function(e) {
 			}));
 		})
 	);
+	console.log('[demoPWA - ServiceWorker] Activate event fired.');
 	return self.clients.claim();
 });
 ```
@@ -103,7 +103,6 @@ Finally, we deal with the `fetch` event, which is fired whenever we send a reque
 
 ```
 self.addEventListener('fetch', function(e) {
-	console.log('[demoPWA - ServiceWorker] Fetch event fired.', e.request.url);
 	e.respondWith(
 		caches.match(e.request).then(function(response) {
 			if (response) {
@@ -116,6 +115,7 @@ self.addEventListener('fetch', function(e) {
 			});
 		})
 	);
+	console.log('[demoPWA - ServiceWorker] Fetch event fired.', e.request.url);
 });
 ```
 
