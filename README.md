@@ -41,10 +41,10 @@ The manifest of the progressive web app looks something like this:
 		"sizes": "256x256",
 		"type": "image/png"
 		}],
-		"start_url": "./index.html",
-		"display": "standalone",
-		"background_color": "#c62828",
-		"theme_color": "#b71c1c"
+	"start_url": "./index.html",
+	"display": "standalone",
+	"background_color": "#c62828",
+	"theme_color": "#b71c1c"
 }
 ```
 
