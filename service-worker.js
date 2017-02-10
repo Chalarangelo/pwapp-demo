@@ -9,13 +9,13 @@ var filesToCache = [
 self.addEventListener('install', function(e) {
 	e.waitUntil(
 		caches.open(cacheName).then(function(cache) {
-			//console.log('[demoPWA - ServiceWorker] Caching app shell...');
+			console.log('[demoPWA - ServiceWorker] Caching app shell...');
 			return cache.addAll(filesToCache).then(function() {
 				self.skipWaiting();
 			});
 		})
 	);
-	//console.log('[demoPWA - ServiceWorker] Install event fired.');
+	console.log('[demoPWA - ServiceWorker] Install event fired.');
 });
 
 self.addEventListener('activate', function(e) {
