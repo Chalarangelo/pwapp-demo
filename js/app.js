@@ -2,8 +2,15 @@ var requestResult = '';
 
 (function() {
 	ajaxGetRequest('https://jsonplaceholder.typicode.com/comments/1', true, function(result) {
-		requestResult = JSON.parse(result);
-		document.getElementById('result').innerHTML += '<h2>'+requestResult['id']+'. '+requestResult['name']+'</h2><p>'+requestResult['body']+'</p><br/>';
+		if (!result.startsWith('GET')){
+			requestResult = JSON.parse(result);
+			document.getElementById('result').innerHTML += '<h2>'+requestResult['id']+'. '+requestResult['name']+'</h2><p>'+requestResult['body']+'</p><br/>';
+			document.getElementById('status').className = 'hidden';
+		}
+		else {
+			console.log(result);
+			document.getElementById('status').className = 'alert critical';
+		}
 	});
 
 	if ('serviceWorker' in navigator) {
@@ -32,8 +39,15 @@ function ajaxGetRequest(url, async, callback) {
 
 function getNewRequest(requestId){
 	ajaxGetRequest('https://jsonplaceholder.typicode.com/comments/'+requestId, true, function(result) {
-		requestResult = JSON.parse(result);
-		document.getElementById('result').innerHTML += '<h2>'+requestResult['id']+'. '+requestResult['name']+'</h2><p>'+requestResult['body']+'</p><br/>';
+		if (!result.startsWith('GET')){
+			requestResult = JSON.parse(result);
+			document.getElementById('result').innerHTML += '<h2>'+requestResult['id']+'. '+requestResult['name']+'</h2><p>'+requestResult['body']+'</p><br/>';
+			document.getElementById('status').className = 'hidden';
+		}
+		else {
+			console.log(result);
+			document.getElementById('status').className = 'alert critical';
+		}
 	});
 }
 

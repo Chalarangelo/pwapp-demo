@@ -4,15 +4,23 @@
 	<link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v2.0.2/dist/mini-default.min.css">
 	<link rel="manifest" href="/manifest.json">
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Progressive Web App demo</title>
+	<meta name="description" content="Progressive Web App demo">
+	<meta name="author" content="Angelos Chalaris (chalarangelo)">
 </head>
-
 <body>
 	<div class="container">
-		<div class="row cols-sm-12">
-			<div>
+		<div class="row">
+			<div class="col-sm-12">
 				<h1>Progressive Web App Demo</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div id="status" class="hidden">
+					<h3>You appear to be offline...</h3>
+				</div>
 			</div>
 		</div>
 		<div class="row">
@@ -28,8 +36,6 @@
 			</div>
 		</div>
 	</div>
-
 	<script src="js/app.js" async></script>
 </body>
-
 </html>

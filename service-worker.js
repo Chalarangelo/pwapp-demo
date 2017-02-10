@@ -33,14 +33,16 @@ self.addEventListener('activate', function(e) {
 
 self.addEventListener('fetch', function(e) {
 	console.log('[demoPWA - ServiceWorker] Fetch event fired.', e.request.url);
-    e.respondWith(
-        caches.match(e.request).then(function(response) {
-            if (response) {
-                console.log('[demoPWA - ServiceWorker] Retrieving from cache...');
-                return response;
-            }
-            console.log('[demoPWA - ServiceWorker] Retrieving from URL...');
-            return fetch(e.request);
-        })
-    );
+	e.respondWith(
+		caches.match(e.request).then(function(response) {
+			if (response) {
+				console.log('[demoPWA - ServiceWorker] Retrieving from cache...');
+				return response;
+			}
+			console.log('[demoPWA - ServiceWorker] Retrieving from URL...');
+			return fetch(e.request).catch(function(e){
+				console.log('[demoPWA - ServiceWorker] Fetch request failed!');
+			});
+		})
+	);
 });
