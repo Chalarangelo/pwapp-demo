@@ -9,7 +9,7 @@ A very straightforward HTML page, stylized using my very own [mini.css framework
 One point of interest in this file is the manifest declaration, which looks something like this:
 
 ```
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="./manifest.json">
 ```
 
 ## js/app.js
@@ -37,11 +37,11 @@ The manifest of the progressive web app looks something like this:
  	"name": "Progressive Web App Demo",
 	"short_name": "PWA Demo",
 	"icons": [{
-		"src": "icons/pwa-256x256.png",
+		"src": "./icons/pwa-256x256.png",
 		"sizes": "256x256",
 		"type": "image/png"
 		}],
-		"start_url": "/index.html",
+		"start_url": "./index.html",
 		"display": "standalone",
 		"background_color": "#c62828",
 		"theme_color": "#b71c1c"
@@ -59,10 +59,10 @@ Last, but not least, the service worker is what makes a progressive web app what
 ```
 var cacheName = 'demoPWA-v1';
 var filesToCache = [
-	'/',
-	'/index.html',
-	'/js/app.js',
-	'/icons/pwa-256x256.png'
+	'./',
+	'./index.html',
+	'./js/app.js',
+	'./icons/pwa-256x256.png'
 ];
 ```
 
