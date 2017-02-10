@@ -1,6 +1,6 @@
 # Progressive Web App Demo
 
-A very simple progressive web app demo that will help you get started. Below you can find a quick rundown of what the demo does. The full source code is contained inside the `docs` directory and the resulting progressive web app can be found [here](https://chalarangelo.github.io/pwapp-demo/).
+A very simple progressive web app demo that will help you get started. Below you can find a quick rundown of what the demo does. The resulting progressive web app can be found [here](https://chalarangelo.github.io/pwapp-demo/).
 
 ## index.html
 
