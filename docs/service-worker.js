@@ -1,9 +1,9 @@
 var cacheName = 'demoPWA-v1';
 var filesToCache = [
-	'/',
-	'/index.html',
-	'/js/app.js',
-	'/icons/pwa-256x256.png'
+	'./',
+	'./index.html',
+	'./js/app.js',
+	'./icons/pwa-256x256.png'
 ];
 
 self.addEventListener('install', function(e) {
